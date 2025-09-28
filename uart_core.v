@@ -1,8 +1,8 @@
 module uart_core #(
     parameter DBIT = 8,
     SB_TICK = 16,
-    DVSR = 163,
-    DVSR_BIT = 8,
+    DVSR = 325,
+    DVSR_BIT = 9,
     FIFO_W = 2
 ) (
     input wire clk,
@@ -66,7 +66,7 @@ module uart_core #(
       .reset_in(reset),
       .transmitter_start(~tx_empty & wr_uart),
       .s_tick(tick),
-      .din(tx_fifo_out),
+      .din(r_data),
       .tx_done_tick(tx_done_tick),
       .tx(tx)
   );
