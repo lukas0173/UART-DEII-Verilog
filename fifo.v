@@ -13,8 +13,8 @@ module fifo #(
 );
 
   reg [B-1:0] array_reg[2**W-1:0];
-  reg [B-1:0] w_ptr_reg, w_ptr_next, w_ptr_succ;
-  reg [B-1:0] r_ptr_reg, r_ptr_next, r_ptr_succ;
+  reg [W-1:0] w_ptr_reg, w_ptr_next, w_ptr_succ;
+  reg [W-1:0] r_ptr_reg, r_ptr_next, r_ptr_succ;
   reg full_reg, empty_reg, full_next, empty_next;
 
   wire wr_en;
