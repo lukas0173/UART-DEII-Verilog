@@ -27,8 +27,8 @@ module fifo #(
 
   assign wr_en  = wr & ~full_reg;
 
-  always @(posedge clk, posedge reset) begin
-    if (reset) begin
+  always @(posedge clk, negedge reset) begin
+    if (~reset) begin
       w_ptr_reg <= 0;
       r_ptr_reg <= 0;
       full_reg  <= 1'b0;

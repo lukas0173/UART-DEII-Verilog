@@ -48,7 +48,7 @@ module uart_rx #(
       end
       start:
       if (s_tick)
-        if (s_reg == 7) begin
+        if (s_reg == 8) begin
           state_next = data;
           s_next = 0;
           n_next = 0;
