@@ -13,8 +13,8 @@ module debounce (
   reg [N-1:0] q_reg, q_next;
   reg [1:0] state_reg, state_next;
 
-  always @(posedge clk or posedge reset) begin
-    if (reset) begin
+  always @(posedge clk or negedge reset) begin
+    if (~reset) begin
       state_reg <= HIGH;
       q_reg <= 0;
     end else begin
