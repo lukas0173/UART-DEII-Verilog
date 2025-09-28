@@ -70,4 +70,5 @@ module uart_rx #(
     endcase
   end
   assign dout = b_reg;
+  assign receiver_data_out = b_reg;
 endmodule

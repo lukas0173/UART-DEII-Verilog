@@ -53,9 +53,9 @@ module uart_core #(
       .rd(rd_uart),
       .wr(rx_done_tick),
       .w_data(rx_data_out),
-      .empty(tx_empty),
+      .empty(rx_empty),
       .full(tx_full),
-      .r_data(tx_fifo_out)
+      .r_data(r_data)
   );
 
   uart_tx #(
@@ -64,7 +64,7 @@ module uart_core #(
   ) uart_tx_unit (
       .clk(clk),
       .reset_in(reset),
-      .transmitter_start(~tx_empty),
+      .transmitter_start(~tx_empty & wr_uart),
       .s_tick(tick),
       .din(tx_fifo_out),
       .tx_done_tick(tx_done_tick),

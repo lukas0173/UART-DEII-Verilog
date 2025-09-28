@@ -43,35 +43,49 @@ module uart_tx #(
     tx_next      = tx_reg;
 
     case (state_reg)
-        IDLE: begin
-            if (transmitter_start) begin
-                state_next = START;
-                s_next     = 0;
-                b_next     = din;
-            end
+      IDLE: begin
+        tx_next = 1'b1;
+        if (transmitter_start) begin
+          state_next = START;
+          s_next     = 0;
+          b_next     = din;
+          n_next     = 0;
         end
-        START: begin
-            tx_next = 1'b0;
-            if (s_tick) begin
-                if (s_reg == 15) begin
-                    s_next = 0;
-                    b_next = b_reg >> 1;
-                    if (n_reg == (data_width - 1)) state_next = STOP;
-                    else n_next = n_reg + 1;
-                end else s_next = s_reg + 1;
-            end
+      end
+
+      START: begin
+        tx_next = 1'b0;
+        if (s_tick) begin
+          if (s_reg == 15) begin
+            state_next = DATA;
+            s_next = 0;
+          end else s_next = s_reg + 1;
         end
-        STOP: begin
-            tx_next = 1'b1;
-            if (s_tick) begin
-                if (s_reg == (SB_TICK - 1)) begin
-                    state_next   = IDLE;
-                    tx_done_tick = 1'b1;
-                end else s_next = s_reg + 1;
-            end
+      end
+
+      DATA: begin
+        tx_next = b_reg[0];  // Send LSB first
+        if (s_tick) begin
+          if (s_reg == 15) begin
+            s_next = 0;
+            b_next = b_reg >> 1;
+            if (n_reg == (data_width - 1)) state_next = STOP;
+            else n_next = n_reg + 1;
+          end else s_next = s_reg + 1;
         end
+      end
+
+      STOP: begin
+        tx_next = 1'b1;
+        if (s_tick) begin
+          if (s_reg == (SB_TICK - 1)) begin
+            state_next   = IDLE;
+            tx_done_tick = 1'b1;
+          end else s_next = s_reg + 1;
+        end
+      end
     endcase
-end
+  end
 
   assign tx = tx_reg;
 endmodule
