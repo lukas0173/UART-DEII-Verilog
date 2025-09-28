@@ -1,0 +1,20 @@
+
+State Machine - |uart_pc_test|debounce:btn_db_unit|state_reg
+Name state_reg.WAIT1 state_reg.LOW state_reg.WAIT0 state_reg.HIGH 
+state_reg.HIGH 0 0 0 0 
+state_reg.WAIT0 0 0 1 1 
+state_reg.LOW 0 1 0 1 
+state_reg.WAIT1 1 0 0 1 
+
+State Machine - |uart_pc_test|uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg
+Name state_reg.START state_reg.STOP state_reg.IDLE 
+state_reg.IDLE 0 0 0 
+state_reg.START 1 0 1 
+state_reg.STOP 0 1 1 
+
+State Machine - |uart_pc_test|uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg
+Name state_reg.stop state_reg.data state_reg.start state_reg.idle 
+state_reg.idle 0 0 0 0 
+state_reg.start 0 0 1 1 
+state_reg.data 0 1 0 1 
+state_reg.stop 1 0 0 1 

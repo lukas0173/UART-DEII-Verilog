@@ -1,0 +1,1084 @@
+TimeQuest Timing Analyzer report for uart_pc_test
+Sun Sep 28 21:12:38 2025
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'clk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'clk'
+ 24. Fast Model Hold: 'clk'
+ 25. Fast Model Minimum Pulse Width: 'clk'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; uart_pc_test                                                      ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C70F896C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 173.94 MHz ; 173.94 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Slow Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -4.749 ; -218.557      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.391 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -74.380               ;
++-------+--------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                                                                           ;
++--------+-------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.749 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.775      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.689 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.715      ;
+; -4.558 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 5.586      ;
+; -4.558 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 5.586      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.554 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.582      ;
+; -4.531 ; debounce:btn_db_unit|q_reg[0] ; debounce:btn_db_unit|state_reg.HIGH                ; clk          ; clk         ; 1.000        ; -0.004     ; 5.563      ;
+; -4.528 ; debounce:btn_db_unit|q_reg[0] ; debounce:btn_db_unit|state_reg.LOW                 ; clk          ; clk         ; 1.000        ; -0.004     ; 5.560      ;
+; -4.498 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 5.526      ;
+; -4.498 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 5.526      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.497 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.523      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.494 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.522      ;
+; -4.471 ; debounce:btn_db_unit|q_reg[1] ; debounce:btn_db_unit|state_reg.HIGH                ; clk          ; clk         ; 1.000        ; -0.004     ; 5.503      ;
+; -4.468 ; debounce:btn_db_unit|q_reg[1] ; debounce:btn_db_unit|state_reg.LOW                 ; clk          ; clk         ; 1.000        ; -0.004     ; 5.500      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.423 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.449      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.410 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.436      ;
+; -4.367 ; debounce:btn_db_unit|q_reg[0] ; debounce:btn_db_unit|state_reg.WAIT0               ; clk          ; clk         ; 1.000        ; -0.004     ; 5.399      ;
+; -4.362 ; debounce:btn_db_unit|q_reg[0] ; debounce:btn_db_unit|state_reg.WAIT1               ; clk          ; clk         ; 1.000        ; -0.004     ; 5.394      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.356 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.382      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.355 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.381      ;
+; -4.307 ; debounce:btn_db_unit|q_reg[1] ; debounce:btn_db_unit|state_reg.WAIT0               ; clk          ; clk         ; 1.000        ; -0.004     ; 5.339      ;
+; -4.306 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 5.334      ;
+; -4.306 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 5.334      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.008     ; 5.330      ;
+; -4.302 ; debounce:btn_db_unit|q_reg[1] ; debounce:btn_db_unit|state_reg.WAIT1               ; clk          ; clk         ; 1.000        ; -0.004     ; 5.334      ;
+; -4.281 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.307      ;
+; -4.281 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.307      ;
+; -4.281 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.307      ;
+; -4.281 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.307      ;
+; -4.281 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.307      ;
+; -4.281 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.307      ;
++--------+-------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                                                                                                            ;
++-------+----------------------------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                ; To Node                                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; debounce:btn_db_unit|state_reg.WAIT0                     ; debounce:btn_db_unit|state_reg.WAIT0                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; debounce:btn_db_unit|state_reg.WAIT1                     ; debounce:btn_db_unit|state_reg.WAIT1                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; debounce:btn_db_unit|state_reg.HIGH                      ; debounce:btn_db_unit|state_reg.HIGH                      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.idle  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.idle  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.start ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.start ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.stop  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.stop  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[2]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[3]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.530 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.796      ;
+; 0.557 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.823      ;
+; 0.557 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.823      ;
+; 0.724 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.990      ;
+; 0.779 ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.045      ;
+; 0.801 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.067      ;
+; 0.805 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.071      ;
+; 0.812 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.078      ;
+; 0.813 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.079      ;
+; 0.835 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.101      ;
+; 0.835 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.101      ;
+; 0.837 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.103      ;
+; 0.842 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.108      ;
+; 0.842 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.108      ;
+; 0.846 ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.112      ;
+; 0.865 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.131      ;
+; 0.867 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.133      ;
+; 0.870 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.136      ;
+; 0.878 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.144      ;
+; 0.879 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.145      ;
+; 0.884 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.150      ;
+; 0.939 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; clk          ; clk         ; 0.000        ; 0.000      ; 1.205      ;
+; 0.949 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.215      ;
+; 0.950 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.216      ;
+; 0.950 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.216      ;
+; 0.976 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.242      ;
+; 0.979 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.245      ;
+; 0.990 ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.256      ;
+; 1.009 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.275      ;
+; 1.024 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.290      ;
+; 1.081 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.347      ;
+; 1.082 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.348      ;
+; 1.082 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.348      ;
+; 1.085 ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.351      ;
+; 1.136 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; -0.002     ; 1.400      ;
+; 1.136 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; -0.002     ; 1.400      ;
+; 1.136 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; -0.002     ; 1.400      ;
+; 1.166 ; debounce:btn_db_unit|state_reg.WAIT1                     ; debounce:btn_db_unit|q_reg[19]                           ; clk          ; clk         ; 0.000        ; -0.003     ; 1.429      ;
+; 1.168 ; debounce:btn_db_unit|state_reg.WAIT1                     ; debounce:btn_db_unit|q_reg[20]                           ; clk          ; clk         ; 0.000        ; -0.003     ; 1.431      ;
+; 1.172 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.438      ;
+; 1.184 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.450      ;
+; 1.188 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.454      ;
+; 1.190 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.456      ;
+; 1.200 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.466      ;
+; 1.202 ; debounce:btn_db_unit|q_reg[8]                            ; debounce:btn_db_unit|q_reg[8]                            ; clk          ; clk         ; 0.000        ; 0.000      ; 1.468      ;
+; 1.213 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.479      ;
+; 1.221 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.487      ;
+; 1.225 ; debounce:btn_db_unit|state_reg.LOW                       ; debounce:btn_db_unit|state_reg.LOW                       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.491      ;
+; 1.227 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.493      ;
+; 1.228 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.494      ;
+; 1.231 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.497      ;
+; 1.232 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.498      ;
+; 1.232 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.498      ;
+; 1.232 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.498      ;
+; 1.233 ; debounce:btn_db_unit|state_reg.LOW                       ; debounce:btn_db_unit|state_reg.WAIT0                     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.499      ;
+; 1.233 ; debounce:btn_db_unit|state_reg.LOW                       ; debounce:btn_db_unit|state_reg.WAIT1                     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.499      ;
+; 1.236 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.idle  ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; clk          ; clk         ; 0.000        ; 0.009      ; 1.511      ;
+; 1.236 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.502      ;
+; 1.242 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.stop  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.start ; clk          ; clk         ; 0.000        ; 0.000      ; 1.508      ;
+; 1.243 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; clk          ; clk         ; 0.000        ; 0.000      ; 1.509      ;
+; 1.243 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.509      ;
+; 1.243 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.509      ;
+; 1.243 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.509      ;
+; 1.244 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.510      ;
+; 1.252 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.518      ;
+; 1.253 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.519      ;
+; 1.253 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.519      ;
+; 1.257 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.523      ;
+; 1.257 ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3]       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.523      ;
+; 1.258 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.524      ;
+; 1.259 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.525      ;
+; 1.267 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.533      ;
+; 1.271 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.537      ;
++-------+----------------------------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                                                                   ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                 ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[0]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[0]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[10]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[10]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[11]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[11]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[12]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[12]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[13]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[13]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[14]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[14]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[15]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[15]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[16]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[16]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[17]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[17]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[18]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[18]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[19]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[19]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[1]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[1]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[20]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[20]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[7]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[7]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[8]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[8]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[9]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[9]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.HIGH                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.HIGH                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.LOW                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.LOW                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT0                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT0                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT1                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT1                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6] ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; btn       ; clk        ; 1.982 ; 1.982 ; Rise       ; clk             ;
+; rx        ; clk        ; 0.985 ; 0.985 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; btn       ; clk        ; -0.215 ; -0.215 ; Rise       ; clk             ;
+; rx        ; clk        ; 0.463  ; 0.463  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; tx        ; clk        ; 6.830 ; 6.830 ; Rise       ; clk             ;
+; tx_full   ; clk        ; 6.896 ; 6.896 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; tx        ; clk        ; 6.830 ; 6.830 ; Rise       ; clk             ;
+; tx_full   ; clk        ; 6.896 ; 6.896 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -1.727 ; -63.645       ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -74.380               ;
++-------+--------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                                                                           ;
++--------+-------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.727 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.750      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.692 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.715      ;
+; -1.642 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 2.666      ;
+; -1.642 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 2.666      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.639 ; debounce:btn_db_unit|q_reg[0] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.663      ;
+; -1.607 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 2.631      ;
+; -1.607 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 2.631      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.604 ; debounce:btn_db_unit|q_reg[1] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.628      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.593 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.616      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.554 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.577      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.541 ; debounce:btn_db_unit|q_reg[6] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.564      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.523 ; debounce:btn_db_unit|q_reg[4] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.546      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.510 ; debounce:btn_db_unit|q_reg[7] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.533      ;
+; -1.508 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 2.532      ;
+; -1.508 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 2.532      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.505 ; debounce:btn_db_unit|q_reg[2] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.529      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.485 ; debounce:btn_db_unit|q_reg[5] ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7] ; clk          ; clk         ; 1.000        ; -0.009     ; 2.508      ;
+; -1.483 ; debounce:btn_db_unit|q_reg[0] ; debounce:btn_db_unit|state_reg.HIGH                ; clk          ; clk         ; 1.000        ; -0.003     ; 2.512      ;
+; -1.482 ; debounce:btn_db_unit|q_reg[0] ; debounce:btn_db_unit|state_reg.LOW                 ; clk          ; clk         ; 1.000        ; -0.003     ; 2.511      ;
+; -1.469 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg    ; clk          ; clk         ; 1.000        ; -0.008     ; 2.493      ;
+; -1.469 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg     ; clk          ; clk         ; 1.000        ; -0.008     ; 2.493      ;
+; -1.466 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.490      ;
+; -1.466 ; debounce:btn_db_unit|q_reg[3] ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 2.490      ;
++--------+-------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                                                                                                            ;
++-------+----------------------------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                ; To Node                                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; debounce:btn_db_unit|state_reg.WAIT0                     ; debounce:btn_db_unit|state_reg.WAIT0                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; debounce:btn_db_unit|state_reg.WAIT1                     ; debounce:btn_db_unit|state_reg.WAIT1                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; debounce:btn_db_unit|state_reg.HIGH                      ; debounce:btn_db_unit|state_reg.HIGH                      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.idle  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.idle  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.start ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.start ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.stop  ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.stop  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[2]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[3]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.247 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.399      ;
+; 0.261 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.413      ;
+; 0.261 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.413      ;
+; 0.331 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.483      ;
+; 0.358 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.510      ;
+; 0.361 ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.513      ;
+; 0.363 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.515      ;
+; 0.366 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.518      ;
+; 0.367 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.519      ;
+; 0.369 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.521      ;
+; 0.372 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.524      ;
+; 0.376 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.528      ;
+; 0.376 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.528      ;
+; 0.376 ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg           ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.528      ;
+; 0.388 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.540      ;
+; 0.389 ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.541      ;
+; 0.394 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.546      ;
+; 0.396 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.548      ;
+; 0.399 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|tx_reg          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.551      ;
+; 0.402 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.data  ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.418 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.START ; clk          ; clk         ; 0.000        ; 0.000      ; 0.570      ;
+; 0.423 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.575      ;
+; 0.424 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.576      ;
+; 0.424 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.576      ;
+; 0.438 ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|n_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.590      ;
+; 0.441 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.593      ;
+; 0.446 ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.598      ;
+; 0.449 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[0]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.601      ;
+; 0.458 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.610      ;
+; 0.477 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.629      ;
+; 0.478 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.630      ;
+; 0.478 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.630      ;
+; 0.496 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.648      ;
+; 0.500 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.652      ;
+; 0.501 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.653      ;
+; 0.505 ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.509 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.661      ;
+; 0.509 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.661      ;
+; 0.516 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.668      ;
+; 0.519 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; clk          ; clk         ; 0.000        ; -0.003     ; 0.668      ;
+; 0.519 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; -0.003     ; 0.668      ;
+; 0.519 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; -0.003     ; 0.668      ;
+; 0.528 ; debounce:btn_db_unit|q_reg[8]                            ; debounce:btn_db_unit|q_reg[8]                            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.680      ;
+; 0.535 ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3]       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.687      ;
+; 0.536 ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[1]        ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.688      ;
+; 0.536 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.688      ;
+; 0.536 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.688      ;
+; 0.537 ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.STOP  ; uart_core:uart_unit|uart_tx:uart_tx_unit|state_reg.IDLE  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.689      ;
+; 0.542 ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[1]        ; uart_core:uart_unit|uart_tx:uart_tx_unit|s_reg[3]        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.694      ;
+; 0.543 ; debounce:btn_db_unit|state_reg.LOW                       ; debounce:btn_db_unit|state_reg.LOW                       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.695      ;
+; 0.543 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.695      ;
+; 0.544 ; debounce:btn_db_unit|state_reg.WAIT1                     ; debounce:btn_db_unit|q_reg[19]                           ; clk          ; clk         ; 0.000        ; -0.004     ; 0.692      ;
+; 0.544 ; debounce:btn_db_unit|state_reg.WAIT1                     ; debounce:btn_db_unit|q_reg[20]                           ; clk          ; clk         ; 0.000        ; -0.004     ; 0.692      ;
+; 0.544 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]       ; clk          ; clk         ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.696      ;
+; 0.545 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.697      ;
+; 0.546 ; debounce:btn_db_unit|state_reg.LOW                       ; debounce:btn_db_unit|state_reg.WAIT0                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.698      ;
+; 0.546 ; uart_core:uart_unit|uart_rx:uart_rx_unit|state_reg.idle  ; uart_core:uart_unit|uart_rx:uart_rx_unit|s_reg[0]        ; clk          ; clk         ; 0.000        ; 0.009      ; 0.707      ;
+; 0.551 ; debounce:btn_db_unit|state_reg.LOW                       ; debounce:btn_db_unit|state_reg.WAIT1                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.703      ;
+; 0.551 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.703      ;
+; 0.552 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.552 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.552 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.552 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.552 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.553 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.705      ;
+; 0.553 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.705      ;
+; 0.559 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.711      ;
+; 0.560 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.712      ;
+; 0.560 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[7]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.712      ;
+; 0.562 ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5]   ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.714      ;
++-------+----------------------------------------------------------+----------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                                                                   ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                 ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[0]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[0]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[10]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[10]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[11]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[11]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[12]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[12]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[13]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[13]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[14]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[14]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[15]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[15]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[16]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[16]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[17]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[17]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[18]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[18]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[19]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[19]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[1]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[1]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[20]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[20]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[7]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[7]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[8]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[8]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[9]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|q_reg[9]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.HIGH                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.HIGH                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.LOW                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.LOW                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT0                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT0                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT1                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; debounce:btn_db_unit|state_reg.WAIT1                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|empty_reg        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|full_reg         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|r_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|fifo:fifo_rx_unit|w_ptr_reg[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[4] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[5] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; uart_core:uart_unit|modMCounter:baud_gen_unit|r_reg[6] ;
++--------+--------------+----------------+------------------+-------+------------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; btn       ; clk        ; 0.580 ; 0.580 ; Rise       ; clk             ;
+; rx        ; clk        ; 0.012 ; 0.012 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; btn       ; clk        ; 0.289 ; 0.289 ; Rise       ; clk             ;
+; rx        ; clk        ; 0.610 ; 0.610 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; tx        ; clk        ; 3.889 ; 3.889 ; Rise       ; clk             ;
+; tx_full   ; clk        ; 3.946 ; 3.946 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; tx        ; clk        ; 3.889 ; 3.889 ; Rise       ; clk             ;
+; tx_full   ; clk        ; 3.946 ; 3.946 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -4.749   ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+;  clk             ; -4.749   ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; -218.557 ; 0.0   ; 0.0      ; 0.0     ; -74.38              ;
+;  clk             ; -218.557 ; 0.000 ; N/A      ; N/A     ; -74.380             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; btn       ; clk        ; 1.982 ; 1.982 ; Rise       ; clk             ;
+; rx        ; clk        ; 0.985 ; 0.985 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; btn       ; clk        ; 0.289 ; 0.289 ; Rise       ; clk             ;
+; rx        ; clk        ; 0.610 ; 0.610 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; tx        ; clk        ; 6.830 ; 6.830 ; Rise       ; clk             ;
+; tx_full   ; clk        ; 6.896 ; 6.896 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; tx        ; clk        ; 3.889 ; 3.889 ; Rise       ; clk             ;
+; tx_full   ; clk        ; 3.946 ; 3.946 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 8139     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 8139     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 124   ; 124  ;
+; Unconstrained Output Ports      ; 2     ; 2    ;
+; Unconstrained Output Port Paths ; 2     ; 2    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Sep 28 21:12:38 2025
+Info: Command: quartus_sta UART -c uart_pc_test
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'uart_pc_test.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.749
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -4.749      -218.557 clk 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -74.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.727
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.727       -63.645 clk 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -74.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 512 megabytes
+    Info: Processing ended: Sun Sep 28 21:12:38 2025
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
