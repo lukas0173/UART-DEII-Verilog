@@ -58,4 +58,20 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulati
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_L8 -to reset
+set_location_assignment PIN_U29 -to btn
+set_location_assignment PIN_AJ17 -to rx_empty
+set_location_assignment PIN_AD8 -to tx_full
+set_location_assignment PIN_AJ6 -to led[0]
+set_location_assignment PIN_AK5 -to led[1]
+set_location_assignment PIN_AJ5 -to led[2]
+set_location_assignment PIN_AJ4 -to led[3]
+set_location_assignment PIN_AK3 -to led[4]
+set_location_assignment PIN_AH4 -to led[5]
+set_location_assignment PIN_AJ3 -to led[6]
+set_location_assignment PIN_AJ2 -to led[7]
+set_location_assignment PIN_AD15 -to clk
+set_location_assignment PIN_D21 -to rx
+set_location_assignment PIN_E21 -to tx
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
