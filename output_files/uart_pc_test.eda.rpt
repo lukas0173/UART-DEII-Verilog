@@ -1,5 +1,5 @@
 EDA Netlist Writer report for uart_pc_test
-Mon Sep 29 11:30:50 2025
+Mon Sep 29 12:32:37 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Sep 29 11:30:50 2025 ;
+; EDA Netlist Writer Status ; Successful - Mon Sep 29 12:32:37 2025 ;
 ; Revision Name             ; uart_pc_test                          ;
 ; Top-level Entity Name     ; uart_pc_test                          ;
 ; Family                    ; Cyclone II                            ;
@@ -84,13 +84,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Sep 29 11:30:49 2025
+    Info: Processing started: Mon Sep 29 12:32:37 2025
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off UART -c uart_pc_test
 Info (204026): Generated files "uart_pc_test.vho", "uart_pc_test_fast.vho", "uart_pc_test_vhd.sdo" and "uart_pc_test_vhd_fast.sdo" in directory "/home/kiet/Nextcloud/Projects/learning/On-class/SoC/UART/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 792 megabytes
-    Info: Processing ended: Mon Sep 29 11:30:50 2025
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 791 megabytes
+    Info: Processing ended: Mon Sep 29 12:32:37 2025
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 

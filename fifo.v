@@ -18,26 +18,36 @@ module fifo #(
   reg full_reg, empty_reg, full_next, empty_next;
 
   wire wr_en;
+  integer i;  // For the for loop
 
-  always @(posedge clk) begin
-    if (wr_en) array_reg[w_ptr_reg] <= w_data;
-  end
+  // always @(posedge clk) begin
+  //   if (wr_en) array_reg[w_ptr_reg] <= w_data;
+  // end
 
   assign r_data = array_reg[r_ptr_reg];
-
   assign wr_en  = wr & ~full_reg;
 
   always @(posedge clk, negedge reset) begin
     if (~reset) begin
+      // Reset pointers and flags
       w_ptr_reg <= 0;
       r_ptr_reg <= 0;
       full_reg  <= 1'b0;
       empty_reg <= 1'b1;
+      // Also reset the memory contents
+      for (i = 0; i < (2 ** W); i = i + 1) begin
+        array_reg[i] <= 0;
+      end
     end else begin
+      // Update pointers and flags on clock edge
       w_ptr_reg <= w_ptr_next;
       r_ptr_reg <= r_ptr_next;
       full_reg  <= full_next;
       empty_reg <= empty_next;
+      // Perform memory write if enabled
+      if (wr_en) begin
+        array_reg[w_ptr_reg] <= w_data;
+      end
     end
   end
 
@@ -70,6 +80,7 @@ module fifo #(
         w_ptr_next = w_ptr_succ;
         r_ptr_next = r_ptr_succ;
       end
+      default: ;
     endcase
   end
 
